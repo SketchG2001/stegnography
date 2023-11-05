@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Decryption of Image</title>
+    <style>
+        /* CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav ul.navbar {
+            background-color: #007BFF;
+            list-style: none;
+            padding: 10px;
+        }
+
+        nav ul.navbar li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul.navbar a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #007BFF;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .form-control-file {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .btn-decrypt {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .alert {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .alert h4 {
+            font-size: 20px;
+        }
+
+        .alert p {
+            font-size: 16px;
+        }
+        .text {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+          .footer {
+            background-color: #333;
+               text-align: center;
+            position: fixed;
+            padding: 15px;
+            width: 100%;
+            bottom: 0px;
+            color: #007BFF;
+            padding: 20px 0;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        {% include 'navigation.html' %}
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Decrypt Your Message Image</h1>
+        <form class="mt-5" method="post" action="{% url 'decryption' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group text-center">
+                <label for="imageInput">Decrypt Image</label>
+                <input type="file" name="image" class="form-control-file" id="imageInput" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-decrypt">Decrypt</button>
+        </form>
+    </div>
+
+    {% if text %}
+        <div class="text">
+            <h4 class="text-center">Decrypted Message</h4>
+            <p class="text-center">{{ text }}</p>
+        </div>
+    {% endif %}
+<footer class="footer">
+    <p>&copy;Vikas Gole</p>
+</footer>
+</body>
+</html>

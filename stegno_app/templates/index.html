@@ -1,0 +1,53 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Secret</title>
+
+    <style>
+        .footer {
+            background-color: #333;
+               text-align: center;
+            position: fixed;
+            padding: 15px;
+            width: 100%;
+            bottom: 0px;
+            color: #007BFF;
+            padding: 20px 0;
+        }
+        .image-container{
+            position: relative;
+            width: 50%;
+            float: left;
+            text-align: center;
+        }
+        .button-link{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+{% include 'navigation.html' %}
+
+<div class="image-container mt-5">
+    <img src="{% static 'images/encryption.jpg' %}" height="300px" width="500px">
+    <a href="encryption/" class="btn btn-danger button-link">Encrypt Now</a>
+</div>
+
+<div class="image-container mt-5">
+    <img src="{% static 'images/decryption.jpg' %}" height="300px" width="500px">
+    <a href="decryption/" class="btn btn-danger button-link">Decrypt Now</a>
+</div>
+
+<footer class="footer">
+    <p>&copy;Vikas Gole</p>
+</footer>
+</body>
+</html>
